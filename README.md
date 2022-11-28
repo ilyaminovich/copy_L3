@@ -1,7 +1,5 @@
 TA_L3 Framework
-
 Installation:
-
 Install Node.JS from https://nodejs.org/en/
 
 For running automation tests locally use next steps after all installations:
