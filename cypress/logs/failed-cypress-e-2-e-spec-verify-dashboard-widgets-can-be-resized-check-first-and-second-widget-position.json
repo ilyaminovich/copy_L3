@@ -1,0 +1,11 @@
+{
+  "specName": "cypress/e2e/spec.cy.js",
+  "title": "Check first and second widget position",
+  "suiteName": "Verify dashboard widgets can be resized",
+  "testName": "Verify dashboard widgets can be resized Check first and second widget position",
+  "testError": "$el.scrollIntoView is not a function",
+  "testCommands": [
+    "get .footer__footer--Dtrj0",
+    "then function(){}"
+  ]
+}

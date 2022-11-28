@@ -1,0 +1,14 @@
+node_modules
+node
+log
+reports
+tmp
+package-lock.json
+*.iml
+.idea/
+target
+launch.json
+*.log
+tatus
+webdriver-manager
+.vscode/

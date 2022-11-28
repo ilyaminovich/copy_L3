@@ -1,0 +1,15 @@
+stages:
+  - test
+
+eslint:
+  stage: test
+  image: node:latest
+  script:
+    - npm i eslint eslint-formatter-codeframe
+    - npm i eslint-config-airbnb-base
+    - npm i eslint-plugin-import
+    - node_modules/eslint/bin/eslint.js --format codeframe --color .
+  only:
+    - merge_requests
+    - main
+  allow_failure: false
