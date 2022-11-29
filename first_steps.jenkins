@@ -23,5 +23,11 @@ pipeline {
         sh 'npm run local_host_test -- --user=superadmin --password=erebus --threads=2'
       }
     }
+
+    stage('Archieve artifacts') {
+      steps {
+        archiveArtifacts artifacts: 'reports/html-reports/*.html', followSymlinks: false
+      }
+    }
   }
 }
