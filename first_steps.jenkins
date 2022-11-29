@@ -1,14 +1,27 @@
-#!groovy
-// Check ub1 properties
-properties([disableConcurrentBuilds()])
-
 pipeline {
-    agent any
-    stages {
-        stage("First step") {
-            steps {
-                echo 'Hello'
-            }
-        }
+  agent any
+
+  tools {nodejs "node"}
+
+  stages {
+
+    stage('Git') {
+      steps {
+        git 'https://github.com/ilyaminovich/copy_L3'
+      }
     }
+
+    stage('Build') {
+      steps {
+        sh 'npm install'
+      }
+    }
+
+
+    stage('Test') {
+      steps {
+        sh 'npm run local_host_test -- --user=superadmin --password=erebus --threads=2'
+      }
+    }
+  }
 }
