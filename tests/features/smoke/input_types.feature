@@ -1,31 +1,31 @@
 Feature: test with different input-types
-
-  Scenario: Check main feature icons
-    When Open Report Portal
-    And Log In to RP as Admin
-    Then Check that feature icons are present
-      | feature    |
-      | dashboard  |
-      | launches   |
-      | filters    |
-    When Log Out
-
-  Scenario: Verify that test run contains expected data
-    When Open Report Portal
-    And Log In to RP as Admin
-    Then Verify that test run contains expected data {"testNumber": "1"}
-    When Log Out
-
-  Scenario: Get name of existed projects
-    When Open Report Portal
-    And Log In to RP as Admin
-    Then Check that name of existed Projects are
-    """
-    hometask_project
-    superadmin_personal
-    """
-    When Log Out
-
+#
+#  Scenario: Check main feature icons
+#    When Open Report Portal
+#    And Log In to RP as Admin
+#    Then Check that feature icons are present
+#      | feature    |
+#      | dashboard  |
+#      | launches   |
+#      | filters    |
+#    When Log Out
+#
+#  Scenario: Verify that test run contains expected data
+#    When Open Report Portal
+#    And Log In to RP as Admin
+#    Then Verify that test run contains expected data {"testNumber": "1"}
+#    When Log Out
+#
+#  Scenario: Get name of existed projects
+#    When Open Report Portal
+#    And Log In to RP as Admin
+#    Then Check that name of existed Projects are
+#    """
+#    hometask_project
+#    superadmin_personal
+#    """
+#    When Log Out
+#
   Scenario: Create, update and remove dashboard via API
     Given Create dashboard via API {"description": "test_description", "name": "part", "share": true}
     Then Check that "part" dashboard is created
