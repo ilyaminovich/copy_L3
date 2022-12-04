@@ -6,12 +6,23 @@ exports.config = {
   specs: [
     './tests/features/**/*.feature',
   ],
+  port: '4444',
   exclude: [
   ],
   capabilities: [{
     maxInstances: initEnv.rp_ui.threads || 1,
     browserName: 'chrome',
     acceptInsecureCerts: true,
+    'goog:chromeOptions': {
+      args: [
+        '--no-sandbox',
+        '--disable-infobars',
+        '--disable-dev-shm-usage',
+        '--headless',
+        '--disable-gpu',
+        '--window-size=1440,735'
+      ],
+    }
   }],
   timeouts: {
     short: 5000,
@@ -24,7 +35,7 @@ exports.config = {
   waitforTimeout: 10000,
   connectionRetryTimeout: 120000,
   connectionRetryCount: 3,
-  services: ['chromedriver'],
+  services: ['chromedriver', 'docker'],
   framework: 'cucumber',
   reporters: ['spec',
     ['html-nice', {
@@ -53,6 +64,15 @@ exports.config = {
     tagExpression: '',
     timeout: 60000,
     ignoreUndefinedDefinitions: false,
+  },
+
+  dockerOptions: {
+    image: 'selenium/standalone-chrome',
+    healthCheck: 'http://localhost:4444',
+    options: {
+      p: ['4444:4444'],
+      shmSize: '2g'
+    }
   },
 
   onPrepare() {

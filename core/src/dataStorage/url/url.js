@@ -1,9 +1,11 @@
+const { initEnv } = require('../../../configs/envs.conf');
+
 class Url {
-  static dashboardData = 'http://localhost:8080/api/v1/hometask_project/dashboard';
+  static dashboardData = `${initEnv.rp_ui.baseUrl}api/v1/testbot_personal/dashboard`;
 
-  static widgetData = 'http://localhost:8080/api/v1/hometask_project/widget';
+  static widgetData = `${initEnv.rp_ui.baseUrl}api/v1/testbot_personal/widget`;
 
-  static widgetDataShared = 'http://localhost:8080/api/v1/hometask_project/widget/shared';
+  static widgetDataShared = `${initEnv.rp_ui.baseUrl}api/v1/testbot_personal/widget/shared`;
 }
 
 module.exports = { Url };

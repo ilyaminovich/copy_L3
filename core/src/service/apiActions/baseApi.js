@@ -4,7 +4,7 @@ class BaseApi {
   static async createAxiosInstance() {
     return axios.create({
       headers: {
-        Authorization: 'bearer 90ae0fc4-0114-49d2-ab92-009b5897f177',
+        Authorization: 'bearer 5a742b8b-71fb-44ab-9330-61b59326ed72',
       },
     });
   }
